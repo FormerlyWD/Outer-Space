@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bo1gaftvausqn"]
+
+[ext_resource type="Script" uid="uid://dxrtkdr7sb2xf" path="res://main_environment/mover.gd" id="1_411o8"]
+[ext_resource type="Texture2D" uid="uid://cg5kvou0u1qr4" path="res://art (outer space)/background/bg2.png" id="1_a6ybp"]
+[ext_resource type="PackedScene" uid="uid://blntgattryop8" path="res://units/player/player_node.tscn" id="1_lm5pp"]
+[ext_resource type="PackedScene" uid="uid://df5g3mjn2l642" path="res://main_environment/environment_camera/main_camera.tscn" id="2_4wluf"]
+[ext_resource type="Script" uid="uid://cq8dn5moh0lfq" path="res://levelup_and_perks/basic prototype/lvlup.gd" id="5_411o8"]
+[ext_resource type="FontFile" uid="uid://cp02tbas5alxd" path="res://art (outer space)/fonts/retrotech/RETROTECH.ttf" id="5_m7fi8"]
+[ext_resource type="Script" uid="uid://gqs3t8xh2cbe" path="res://main_environment/pauser/pauser.gd" id="6_vhu3h"]
+[ext_resource type="PackedScene" uid="uid://yx5671awrkti" path="res://levelup_and_perks/levelup_menu/level_up.tscn" id="7_1svm7"]
+
+[node name="MainEnvironment" type="Node2D" unique_id=622337897]
+
+[node name="Mover" type="Parallax2D" parent="." unique_id=890446741 node_paths=PackedStringArray("distance_node")]
+repeat_size = Vector2(360, 0)
+autoscroll = Vector2(1, 0)
+repeat_times = 3
+script = ExtResource("1_411o8")
+default_autoscroll_x = -1.0
+distance_node = NodePath("../MainCamera/detection_centre/distance")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mover" unique_id=1745034251]
+texture = ExtResource("1_a6ybp")
+
+[node name="PlayerNode" parent="." unique_id=2010375817 instance=ExtResource("1_lm5pp")]
+
+[node name="MainCamera" parent="." unique_id=288779792 instance=ExtResource("2_4wluf")]
+
+[node name="distance" type="Label" parent="MainCamera/detection_centre" parent_id_path=PackedInt32Array(288779792, 2065954759) index="3" unique_id=649100522]
+unique_name_in_owner = true
+offset_left = 175.0
+offset_top = 1.14
+offset_right = 215.00032
+offset_bottom = 24.139996
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_m7fi8")
+theme_override_font_sizes/font_size = 17
+
+[node name="EnemyAutoSpawner" parent="MainCamera" index="2" unique_id=1785792017]
+position = Vector2(211.325, -93.34)
+
+[node name="environment_ui" type="CanvasLayer" parent="." unique_id=1536616777]
+
+[node name="lvlup" type="Label" parent="environment_ui" unique_id=1263233053]
+offset_left = 4.0
+offset_top = 128.0
+offset_right = 44.000008
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("5_m7fi8")
+theme_override_font_sizes/font_size = 17
+text = "lvl0"
+script = ExtResource("5_411o8")
+
+[node name="LevelUp" parent="environment_ui" unique_id=2115891844 instance=ExtResource("7_1svm7")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+
+[node name="description" parent="environment_ui/LevelUp/InnerLevelUpMenu/InnermostDescriptionMenu" parent_id_path=PackedInt32Array(2115891844, 345924409) index="1" unique_id=1535956381]
+offset_right = 1.0
+
+[node name="Pauser" type="Node" parent="." unique_id=1930980096 node_paths=PackedStringArray("pausable_nodes")]
+unique_name_in_owner = true
+script = ExtResource("6_vhu3h")
+pausable_nodes = [NodePath("../Mover"), NodePath("../MainCamera/EnemyAutoSpawner")]
+
+[editable path="MainCamera"]
+[editable path="environment_ui/LevelUp"]

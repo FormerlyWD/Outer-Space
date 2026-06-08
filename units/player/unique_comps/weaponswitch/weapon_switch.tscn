@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cju3lu5i764vo"]
+
+[ext_resource type="Script" uid="uid://bj18ejog5kw0k" path="res://units/player/unique_comps/weaponswitch/weapon_switch.gd" id="1_141wo"]
+
+[node name="WeaponSwitch" type="Node2D" unique_id=895557347]
+script = ExtResource("1_141wo")

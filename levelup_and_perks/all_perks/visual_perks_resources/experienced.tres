@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://dhlu8yepw2moc"]
+
+[ext_resource type="Texture2D" uid="uid://ibqg8ssx2us7" path="res://art (outer space)/perks/perk_designs/xp.png" id="1_4kv4o"]
+[ext_resource type="Script" uid="uid://bccfpmulka35n" path="res://levelup_and_perks/all_perks/functional_perk_collection/experienced.gd" id="1_6d4q1"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="2_2nf3d"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_2nf3d")
+image = ExtResource("1_4kv4o")
+trunciated_perk_name = "XP/nUP"
+functional_perk_reference = ExtResource("1_6d4q1")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

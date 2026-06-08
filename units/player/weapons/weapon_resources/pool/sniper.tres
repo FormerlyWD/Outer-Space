@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://hvesihew5pbk"]
+
+[ext_resource type="Script" uid="uid://ngtq3blb4847" path="res://units/player/weapons/weapon_resources/weapon_definitions.gd" id="1_txs21"]
+[ext_resource type="Texture2D" uid="uid://cdbhnbaa2av38" path="res://art (outer space)/weapon types/ad.png" id="2_ev2ix"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_txs21")
+weapon_image = ExtResource("2_ev2ix")
+weapon_bgcs_path = "res://units/player/weapons/sniper/sniper.tscn"
+trunciated_weapon_name = "SNIPE"
+description = "Shoot 1 pattern w high dmg but high fire rate"
+metadata/_custom_type_script = "uid://ngtq3blb4847"

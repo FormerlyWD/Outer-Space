@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ce57hvnxktu00"]
+
+[ext_resource type="Script" uid="uid://bv3lcgmpq8s6l" path="res://units/player/unique_comps/KillingFlagComponent/player_killing_flag_component.gd" id="1_jafig"]
+
+[node name="PlayerKillingFlagComponent" type="Node" unique_id=975565154]
+script = ExtResource("1_jafig")

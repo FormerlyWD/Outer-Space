@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b1fi8s74cvvbo"]
+
+[ext_resource type="Script" uid="uid://bc4nd8yvprnrh" path="res://units/enemies/base_blueprint/base_enemy.gd" id="1_abja1"]
+[ext_resource type="PackedScene" uid="uid://hsey8padapfp" path="res://units/enemies/base_blueprint/unique_comps/ai_movement/EnemyAiMovementComponent.tscn" id="4_iiucm"]
+[ext_resource type="Script" uid="uid://4887ql5vcnef" path="res://units/enemies/base_blueprint/enemy_stat_component.gd" id="4_kslgh"]
+[ext_resource type="PackedScene" uid="uid://bvehvyq7sgh6b" path="res://units/all_comps/bullet_detection/bullet_detection_component.tscn" id="5_iiucm"]
+[ext_resource type="PackedScene" uid="uid://dtwrmwxccanv6" path="res://units/all_comps/health/health_component.tscn" id="6_7r878"]
+[ext_resource type="PackedScene" uid="uid://csby1hraep3uu" path="res://units/enemies/base_blueprint/unique_comps/death_flag/enemy_death_flag_component.tscn" id="7_ep8pm"]
+[ext_resource type="PackedScene" uid="uid://biihtonaukojm" path="res://units/enemies/base_blueprint/unique_comps/auto_fire_controller/enemy_auto_fire_controller.tscn" id="8_nmml3"]
+[ext_resource type="PackedScene" uid="uid://ckjf242pbiedp" path="res://units/all_comps/audio_proc_manager/audio_proc_manager.tscn" id="11_ocbg0"]
+[ext_resource type="PackedScene" uid="uid://c336kad7t4tp5" path="res://units/enemies/base_blueprint/unique_comps/enemy_fov/enemy_fov_component.tscn" id="13_sc6xp"]
+[ext_resource type="Script" uid="uid://bncu6mhgg5m1v" path="res://units/all_comps/bgcslot/bullet_generator_container_slot.gd" id="14_nuscg"]
+[ext_resource type="PackedScene" uid="uid://dd36ljwuotf46" path="res://units/all_comps/hit_animation/hit_anim_component.tscn" id="15_gd63u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7bkv"]
+size = Vector2(23.5, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sc6xp"]
+radius = 196.12495
+
+[node name="BaseEnemy" type="CharacterBody2D" unique_id=337971491 node_paths=PackedStringArray("movement_component", "stat_component", "death_flag", "all_pausable_nodes") groups=["enemy"]]
+modulate = Color(0.99215686, 1, 1, 1)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_abja1")
+value = 1.0
+movement_component = NodePath("EnemyAiMovementComponent")
+stat_component = NodePath("EnemyStatComponent")
+death_flag = NodePath("EnemyDeathFlagComponent")
+all_pausable_nodes = [NodePath("EnemyAutoFireControllerComponent")]
+
+[node name="EnemyStatComponent" type="Node2D" parent="." unique_id=463250076]
+script = ExtResource("4_kslgh")
+custom_bullet_behavior = "homing"
+custom_bullet_properties = {
+"homing_strength": 15.0,
+"is_homing_target_player": true,
+"wave_amplitude": 0.0,
+"wave_frequency": 1.2
+}
+movement_speed = 200.0
+metadata/_custom_type_script = "uid://dw0xchf30xux2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202095739]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_p7bkv")
+
+[node name="EnemyAiMovementComponent" parent="." unique_id=1312269206 node_paths=PackedStringArray("base_parent", "stat_component") instance=ExtResource("4_iiucm")]
+current_enemy_movement_types = Array[int]([1])
+base_parent = NodePath("..")
+stat_component = NodePath("../EnemyStatComponent")
+randf_x = Vector2(-0.1, 0)
+randf_y = Vector2(0.01, 0.01)
+homing_max_timer = 0.1
+homing_strength = 20.0
+
+[node name="BulletDetectionComponent" parent="." unique_id=989646596 node_paths=PackedStringArray("collision_boxes", "root_node", "health_component", "hit_anim_component") instance=ExtResource("5_iiucm")]
+collision_boxes = [NodePath("../CollisionShape2D")]
+root_node = NodePath("..")
+health_component = NodePath("../HealthComponent")
+hit_anim_component = NodePath("../HitAnimComponent")
+
+[node name="HealthComponent" parent="." unique_id=1321408514 node_paths=PackedStringArray("stat_component", "death_flag_component") instance=ExtResource("6_7r878")]
+stat_component = NodePath("../EnemyStatComponent")
+death_flag_component = NodePath("../EnemyDeathFlagComponent")
+
+[node name="EnemyDeathFlagComponent" parent="." unique_id=254722952 node_paths=PackedStringArray("root_parent") instance=ExtResource("7_ep8pm")]
+root_parent = NodePath("..")
+
+[node name="EnemyFovComponent" parent="." unique_id=1546877068 node_paths=PackedStringArray("enemy_fire_controller") instance=ExtResource("13_sc6xp")]
+enemy_fire_controller = NodePath("../EnemyAutoFireControllerComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyFovComponent" unique_id=500009609]
+visible = false
+shape = SubResource("CircleShape2D_sc6xp")
+
+[node name="EnemyAutoFireControllerComponent" parent="." unique_id=953117975 node_paths=PackedStringArray("audio_proc", "bgc_slot") instance=ExtResource("8_nmml3")]
+audio_proc = NodePath("../AudioProcManager")
+bgc_slot = NodePath("../BulletGeneratorContainerSlot")
+
+[node name="BulletGeneratorContainerSlot" type="Node" parent="." unique_id=120269323]
+script = ExtResource("14_nuscg")
+metadata/_custom_type_script = "uid://bncu6mhgg5m1v"
+
+[node name="HitAnimComponent" parent="." unique_id=324177354 node_paths=PackedStringArray("root_parent") instance=ExtResource("15_gd63u")]
+root_parent = NodePath("..")
+
+[node name="AudioProcManager" parent="." unique_id=2079935601 instance=ExtResource("11_ocbg0")]
+default_db = -10.0

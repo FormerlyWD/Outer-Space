@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://biihtonaukojm"]
+
+[ext_resource type="Script" uid="uid://clfibecm37moh" path="res://units/enemies/base_blueprint/unique_comps/auto_fire_controller/enemy_auto_fire_controller.gd" id="1_4nkua"]
+
+[node name="EnemyAutoFireControllerComponent" type="Node" unique_id=953117975]
+script = ExtResource("1_4nkua")
+metadata/_custom_type_script = "uid://77igcgtjdcy0"

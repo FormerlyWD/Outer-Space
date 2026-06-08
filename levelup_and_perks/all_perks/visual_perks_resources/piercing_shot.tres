@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://du4rijyjxb082"]
+
+[ext_resource type="Texture2D" uid="uid://dbk87k6egb7k2" path="res://art (outer space)/perks/perk_designs/actualpierce.png" id="1_rmply"]
+[ext_resource type="Script" uid="uid://c7fabkarbbjby" path="res://levelup_and_perks/all_perks/functional_perk_collection/piercing_shot.gd" id="1_rvup6"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="2_tihbf"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_tihbf")
+image = ExtResource("1_rmply")
+trunciated_perk_name = "PIER/nCE"
+functional_perk_reference = ExtResource("1_rvup6")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://brgrvrlwdq5a"]
+
+[ext_resource type="Script" uid="uid://bknpuqlrx6q47" path="res://units/player/unique_comps/death_flag/player_death_flag_component.gd" id="1_wqqng"]
+
+[node name="PlayerDeathFlagComponent" type="Node" unique_id=949764152]
+script = ExtResource("1_wqqng")
+metadata/_custom_type_script = "uid://bd28elcpso7ss"

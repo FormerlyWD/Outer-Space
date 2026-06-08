@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://c048awfgqv46g"]
+
+[ext_resource type="Script" uid="uid://ngtq3blb4847" path="res://units/player/weapons/weapon_resources/weapon_definitions.gd" id="1_pf7u1"]
+[ext_resource type="Texture2D" uid="uid://bobjirm5qam0g" path="res://art (outer space)/perks/Sprite-0014.png" id="2_pf7u1"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_pf7u1")
+weapon_image = ExtResource("2_pf7u1")
+weapon_bgcs_path = "res://units/player/weapons/pistol/pistol.tscn"
+trunciated_weapon_name = "PIS/nTOL"
+description = "Shoot 1 pattern  with base damage of 12"
+metadata/_custom_type_script = "uid://ngtq3blb4847"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dowitrusld0jo"]
+
+[ext_resource type="Script" uid="uid://4i3gaabhtyds" path="res://bullet_related_stuff/base_bullet_generation/base_bullet_generator_default.gd" id="1_pxiv6"]
+
+[node name="BaseBulletGeneratorDefault" type="Node2D" unique_id=1476846202]
+script = ExtResource("1_pxiv6")

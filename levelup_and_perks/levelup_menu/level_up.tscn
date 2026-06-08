@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://yx5671awrkti"]
+
+[ext_resource type="Script" uid="uid://dqomn05gy53o" path="res://levelup_and_perks/levelup_menu/level_up.gd" id="1_2drgo"]
+[ext_resource type="Texture2D" uid="uid://dtq4ts1042y1w" path="res://art (outer space)/perks/perk_menu/perkselectionpopup.png" id="1_kmv0b"]
+[ext_resource type="Script" uid="uid://dqmb8tixo278m" path="res://levelup_and_perks/levelup_menu/innermost_description_menu.gd" id="2_osr01"]
+[ext_resource type="Texture2D" uid="uid://7cavvm8yluf8" path="res://art (outer space)/perks/perk_menu/pureperkmenubg.png" id="3_372ew"]
+[ext_resource type="PackedScene" uid="uid://cmltvup7qjd4t" path="res://levelup_and_perks/visual_base_perk/collection/visual_perk_slot_collection.tscn" id="3_fwqmm"]
+[ext_resource type="PackedScene" uid="uid://cf5mj033sy4hg" path="res://levelup_and_perks/visual_base_perk/perk_types/menu_perks/visual_perk_menu_slot.tscn" id="3_mo2gq"]
+[ext_resource type="Script" uid="uid://bkpx0lncn8bua" path="res://levelup_and_perks/levelup_menu/description.gd" id="5_3b5ca"]
+[ext_resource type="Script" uid="uid://ce4loft12hut8" path="res://levelup_and_perks/levelup_menu/touch_manager.gd" id="5_20qy5"]
+[ext_resource type="FontFile" uid="uid://cp02tbas5alxd" path="res://art (outer space)/fonts/retrotech/RETROTECH.ttf" id="6_pu7wp"]
+[ext_resource type="PackedScene" uid="uid://c0ry46glv5f6l" path="res://units/player/weapons/weapon_resources/weapon_menu_collection.tscn" id="8_0dnkg"]
+[ext_resource type="Texture2D" uid="uid://btax603py081q" path="res://art (outer space)/weapon types/weapon_Types__menu/menu.png" id="9_qylg0"]
+[ext_resource type="PackedScene" uid="uid://bs0fsvqi51vlf" path="res://units/player/weapons/weapon_resources/base_menu_weapon/MenuWeapon.tscn" id="10_efmuj"]
+
+[sub_resource type="Animation" id="Animation_kmv0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InnerLevelUpMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, 49)]
+}
+
+[sub_resource type="Animation" id="Animation_20qy5"]
+resource_name = "down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InnerLevelUpMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 49), Vector2(200, 182.475)]
+}
+
+[sub_resource type="Animation" id="Animation_2drgo"]
+resource_name = "up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InnerLevelUpMenu:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(4.5, 4.5),
+"update": 0,
+"values": [Vector2(200, 182.475), Vector2(200, 24.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mo2gq"]
+_data = {
+&"RESET": SubResource("Animation_kmv0b"),
+&"down": SubResource("Animation_20qy5"),
+&"up": SubResource("Animation_2drgo")
+}
+
+[node name="LevelUp" type="Control" unique_id=2115891844 node_paths=PackedStringArray("visual_perk_slot_collection", "weapon_menu_collection")]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2drgo")
+visual_perk_slot_collection = NodePath("InnerLevelUpMenu/MenuWiggle/VisualPerkSlotCollection")
+weapon_menu_collection = NodePath("InnerLevelUpMenu/WeaponMenu/WeaponMenuCollection")
+
+[node name="InnerLevelUpMenu" type="Control" parent="." unique_id=495761331]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -41.0
+offset_right = 53.999634
+offset_bottom = 90.00012
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InnermostDescriptionMenu" type="Control" parent="InnerLevelUpMenu" unique_id=345924409]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -83.0
+offset_top = -1.015
+offset_right = 21.0
+offset_bottom = 128.74501
+script = ExtResource("2_osr01")
+anim_duration = 1.0
+transition = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="InnerLevelUpMenu/InnermostDescriptionMenu" unique_id=1183507345]
+position = Vector2(50, 66)
+texture = ExtResource("3_372ew")
+
+[node name="description" type="Label" parent="InnerLevelUpMenu/InnermostDescriptionMenu" unique_id=1535956381]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.125
+offset_top = 17.665
+offset_right = -26.0
+offset_bottom = -6.7450104
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_pu7wp")
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 3
+script = ExtResource("5_3b5ca")
+
+[node name="MenuWiggle" type="Node2D" parent="InnerLevelUpMenu" unique_id=1586945414]
+unique_name_in_owner = true
+position = Vector2(53.73, 65.485)
+
+[node name="inner_border" type="Sprite2D" parent="InnerLevelUpMenu/MenuWiggle" unique_id=1754019127]
+position = Vector2(-1.5258789e-05, 0)
+texture = ExtResource("1_kmv0b")
+
+[node name="VisualPerkSlot1" parent="InnerLevelUpMenu/MenuWiggle" unique_id=1202510272 instance=ExtResource("3_mo2gq")]
+position = Vector2(-21.979996, -33.485)
+
+[node name="VisualPerkSlot2" parent="InnerLevelUpMenu/MenuWiggle" unique_id=352699760 instance=ExtResource("3_mo2gq")]
+position = Vector2(-21.979996, 0.5149994)
+
+[node name="VisualPerkSlot3" parent="InnerLevelUpMenu/MenuWiggle" unique_id=996254829 instance=ExtResource("3_mo2gq")]
+position = Vector2(-22, 34)
+
+[node name="VisualPerkSlotCollection" parent="InnerLevelUpMenu/MenuWiggle" unique_id=592878547 node_paths=PackedStringArray("visual_perk_slots") instance=ExtResource("3_fwqmm")]
+unique_name_in_owner = true
+visual_perk_slots = [NodePath("../VisualPerkSlot1"), NodePath("../VisualPerkSlot2"), NodePath("../VisualPerkSlot3")]
+
+[node name="WeaponMenu" type="Node2D" parent="InnerLevelUpMenu" unique_id=1883141353]
+unique_name_in_owner = true
+
+[node name="WeaponMenuCollection" parent="InnerLevelUpMenu/WeaponMenu" unique_id=1927166169 node_paths=PackedStringArray("all_weapon_slots") instance=ExtResource("8_0dnkg")]
+all_weapon_slots = [NodePath("../MenuWeapon"), NodePath("../MenuWeapon2"), NodePath("../MenuWeapon3")]
+
+[node name="inner_border2" type="Sprite2D" parent="InnerLevelUpMenu/WeaponMenu" unique_id=238885803]
+position = Vector2(53.72998, 65.485)
+texture = ExtResource("9_qylg0")
+
+[node name="MenuWeapon" parent="InnerLevelUpMenu/WeaponMenu" unique_id=1745326501 instance=ExtResource("10_efmuj")]
+position = Vector2(31.21, 29.955)
+
+[node name="MenuWeapon2" parent="InnerLevelUpMenu/WeaponMenu" unique_id=770139220 instance=ExtResource("10_efmuj")]
+position = Vector2(31.21, 65.24)
+
+[node name="MenuWeapon3" parent="InnerLevelUpMenu/WeaponMenu" unique_id=1247275559 instance=ExtResource("10_efmuj")]
+position = Vector2(31.21, 100)
+
+[node name="LvlUpAnimationPlayer" type="AnimationPlayer" parent="." unique_id=25540350]
+libraries/ = SubResource("AnimationLibrary_mo2gq")
+
+[node name="TouchManager" type="Node" parent="." unique_id=1350652983]
+unique_name_in_owner = true
+script = ExtResource("5_20qy5")

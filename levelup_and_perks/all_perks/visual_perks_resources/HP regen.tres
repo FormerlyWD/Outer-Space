@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://c6vc08h65r7b"]
+
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="1_1nkh1"]
+[ext_resource type="Script" uid="uid://dn3p2j7n1bruo" path="res://levelup_and_perks/all_perks/functional_perk_collection/HP regen.gd" id="1_mu0r0"]
+[ext_resource type="Texture2D" uid="uid://dcbq4318ki2k7" path="res://art (outer space)/perks/perk_designs/hp regen.png" id="1_y6px5"]
+
+[resource]
+script = ExtResource("1_1nkh1")
+image = ExtResource("1_y6px5")
+trunciated_perk_name = "HP/nREGEN"
+functional_perk_reference = ExtResource("1_mu0r0")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

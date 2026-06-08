@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dd36ljwuotf46"]
+
+[ext_resource type="Script" uid="uid://dq0mnl7u0v6iy" path="res://units/all_comps/hit_animation/hit_anim_component.gd" id="1_l5rfg"]
+
+[node name="HitAnimComponent" type="Node" unique_id=324177354]
+script = ExtResource("1_l5rfg")

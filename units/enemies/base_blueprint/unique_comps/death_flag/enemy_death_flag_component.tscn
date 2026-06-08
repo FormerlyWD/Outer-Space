@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://csby1hraep3uu"]
+
+[ext_resource type="Script" uid="uid://cuebc0v57ghso" path="res://units/enemies/base_blueprint/unique_comps/death_flag/enemy_death_flag_component.gd" id="1_sxrq8"]
+
+[node name="EnemyDeathFlagComponent" type="Node" unique_id=254722952]
+script = ExtResource("1_sxrq8")
+metadata/_custom_type_script = "uid://bd28elcpso7ss"

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bs0fsvqi51vlf"]
+
+[ext_resource type="Script" uid="uid://cudgr40t2fgos" path="res://units/player/weapons/weapon_resources/base_menu_weapon/menu_weapon.gd" id="1_ndkex"]
+[ext_resource type="Theme" uid="uid://bj1knc8jiagv1" path="res://art (outer space)/themes/visual_perks.tres" id="2_xwpgd"]
+[ext_resource type="FontFile" uid="uid://cp02tbas5alxd" path="res://art (outer space)/fonts/retrotech/RETROTECH.ttf" id="3_kb4fp"]
+[ext_resource type="Texture2D" uid="uid://cdbhnbaa2av38" path="res://art (outer space)/weapon types/ad.png" id="4_kb4fp"]
+
+[node name="MenuWeapon" type="Node2D" unique_id=1745326501]
+script = ExtResource("1_ndkex")
+
+[node name="mouse_detect" type="Control" parent="." unique_id=1508046351]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 66.0
+offset_bottom = 14.0
+theme = ExtResource("2_xwpgd")
+
+[node name="text_area" type="Control" parent="mouse_detect" unique_id=296818284]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="name" type="Label" parent="mouse_detect/text_area" unique_id=10576071]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 56.0
+offset_bottom = 31.0
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("3_kb4fp")
+theme_override_font_sizes/font_size = 17
+text = "ABBE"
+autowrap_mode = 1
+
+[node name="weapon_sprite" type="Sprite2D" parent="." unique_id=206841019]
+texture = ExtResource("4_kb4fp")
+
+[connection signal="mouse_entered" from="mouse_detect" to="." method="_on_mouse_detect_mouse_entered"]
+[connection signal="mouse_exited" from="mouse_detect" to="." method="_on_mouse_detect_mouse_exited"]

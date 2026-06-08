@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://coi36myyxplgw"]
+
+[ext_resource type="Script" uid="uid://ccp3ekf8urr3o" path="res://units/enemies/base_blueprint/unique_comps/look_at/enemy_look_at.gd" id="1_ul3k3"]
+
+[node name="EnemyLookAtComponent" type="Node2D" unique_id=796190153]
+script = ExtResource("1_ul3k3")
+metadata/_custom_type_script = "uid://dyrr55kkqtd05"

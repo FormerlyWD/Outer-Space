@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c7aiun3jxx8pd"]
+
+[ext_resource type="Script" uid="uid://bifkjkklnjy5g" path="res://levelup_and_perks/visual_base_perk/perk_types/menu_perks/visual_perk_menu.gd" id="1_osg1s"]
+[ext_resource type="Texture2D" uid="uid://bn4r6pav0cqk1" path="res://art (outer space)/perks/perk_borders/base_border/Sprite-0016.png" id="2_hocd5"]
+[ext_resource type="Theme" uid="uid://bj1knc8jiagv1" path="res://art (outer space)/themes/visual_perks.tres" id="3_3hfau"]
+[ext_resource type="FontFile" uid="uid://cp02tbas5alxd" path="res://art (outer space)/fonts/retrotech/RETROTECH.ttf" id="4_15ig7"]
+
+[node name="VisualPerkSlotInGame" type="Node2D" unique_id=352699760]
+script = ExtResource("1_osg1s")
+
+[node name="border" type="Sprite2D" parent="." unique_id=1227148082]
+texture = ExtResource("2_hocd5")
+
+[node name="perk" type="Sprite2D" parent="." unique_id=2129244592]
+position = Vector2(0, 1)
+
+[node name="mouse_detect" type="Control" parent="." unique_id=389526263]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+theme = ExtResource("3_3hfau")
+
+[node name="num" type="Label" parent="." unique_id=2099807084]
+offset_left = -13.0
+offset_top = 14.0
+offset_right = 14.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("4_15ig7")
+theme_override_font_sizes/font_size = 17
+text = "x"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="mouse_detect" to="." method="_on_mouse_detect_mouse_entered"]
+[connection signal="mouse_exited" from="mouse_detect" to="." method="_on_mouse_detect_mouse_exited"]

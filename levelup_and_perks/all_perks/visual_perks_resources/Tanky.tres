@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://cqb63hdhrodh3"]
+
+[ext_resource type="Script" uid="uid://dqtvfkk56v6cw" path="res://levelup_and_perks/all_perks/functional_perk_collection/tanky.gd" id="1_dcwcm"]
+[ext_resource type="Texture2D" uid="uid://cdis0rnnj8sdl" path="res://art (outer space)/perks/perk_designs/tanky.png" id="2_dcwcm"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="3_fkuga"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_fkuga")
+image = ExtResource("2_dcwcm")
+trunciated_perk_name = "TANK/nY"
+functional_perk_reference = ExtResource("1_dcwcm")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://blntgattryop8"]
+
+[ext_resource type="Script" uid="uid://c5008sfxf22el" path="res://units/player/player_node.gd" id="1_ynuq4"]
+[ext_resource type="PackedScene" uid="uid://d3apigubcvjam" path="res://units/player/unique_comps/movement/player_movement_component.tscn" id="2_a3uy3"]
+[ext_resource type="Texture2D" uid="uid://44fikrwl22pl" path="res://icon.svg" id="3_d0owe"]
+[ext_resource type="PackedScene" uid="uid://bftl32pduyeaf" path="res://units/player/unique_comps/cursor_rotation/PlayerLookAtComponent.tscn" id="4_hce78"]
+[ext_resource type="Script" uid="uid://gbobuulad10t" path="res://bullet_related_stuff/bullet_generator_slot.gd" id="5_grpni"]
+[ext_resource type="PackedScene" uid="uid://c8h7aejer8cb6" path="res://units/player/unique_comps/bgc/bullet_generator_container.tscn" id="6_grpni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcgpj"]
+size = Vector2(82.75, 38)
+
+[node name="PlayerNode" type="CharacterBody2D" unique_id=2010375817 node_paths=PackedStringArray("movement_component") groups=["player"]]
+script = ExtResource("1_ynuq4")
+movement_component = NodePath("PlayerMovementComponent")
+
+[node name="PlayerMovementComponent" parent="." unique_id=178583949 instance=ExtResource("2_a3uy3")]
+
+[node name="PlayerLookAtComponent" parent="." unique_id=856157958 node_paths=PackedStringArray("base_node") instance=ExtResource("4_hce78")]
+base_node = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=869982457]
+texture = ExtResource("3_d0owe")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1577549709]
+position = Vector2(103, 4)
+shape = SubResource("RectangleShape2D_gcgpj")
+
+[node name="BulletGeneratorSlot" type="Node2D" parent="." unique_id=1330955558]
+script = ExtResource("5_grpni")
+
+[node name="BulletGeneratorContainer" parent="." unique_id=1226967140 instance=ExtResource("6_grpni")]

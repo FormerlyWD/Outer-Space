@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://blntgattryop8"]
+
+[ext_resource type="Script" uid="uid://c5008sfxf22el" path="res://units/player/player_node.gd" id="1_ynuq4"]
+[ext_resource type="PackedScene" uid="uid://c42rspwcd2svr" path="res://units/player/unique_comps/perk_manager/perk_manager.tscn" id="2_opn3e"]
+[ext_resource type="Script" uid="uid://bncu6mhgg5m1v" path="res://units/all_comps/bgcslot/bullet_generator_container_slot.gd" id="3_2aag6"]
+[ext_resource type="PackedScene" uid="uid://bftl32pduyeaf" path="res://units/player/unique_comps/cursor_rotation/PlayerLookAtComponent.tscn" id="4_hce78"]
+[ext_resource type="Texture2D" uid="uid://r33f2vm65rp1" path="res://art (outer space)/char_machine/Sprite-0001.png" id="6_n63nj"]
+[ext_resource type="PackedScene" uid="uid://guuvbouer3ag" path="res://units/player/unique_comps/player_fire_controller/player_fire_controller.tscn" id="7_pwodn"]
+[ext_resource type="Script" uid="uid://hsq6coatc6v3" path="res://units/player/player_movement_component.gd" id="8_a74nt"]
+[ext_resource type="Script" uid="uid://cifdqdoa5yp41" path="res://units/player/player_stat_component.gd" id="8_n63nj"]
+[ext_resource type="PackedScene" uid="uid://dtwrmwxccanv6" path="res://units/all_comps/health/health_component.tscn" id="9_5xdb8"]
+[ext_resource type="PackedScene" uid="uid://bvehvyq7sgh6b" path="res://units/all_comps/bullet_detection/bullet_detection_component.tscn" id="10_2aag6"]
+[ext_resource type="PackedScene" uid="uid://brgrvrlwdq5a" path="res://units/player/unique_comps/death_flag/player_death_flag_component.tscn" id="11_7swms"]
+[ext_resource type="PackedScene" uid="uid://c2gsy70asom7a" path="res://units/player/unique_comps/xp_calculation_component/XpCalculationComponent.tscn" id="12_0rgyy"]
+[ext_resource type="PackedScene" uid="uid://ce57hvnxktu00" path="res://units/player/unique_comps/KillingFlagComponent/PlayerKillingFlagComponent.tscn" id="12_7sgym"]
+[ext_resource type="PackedScene" uid="uid://bn847u5ah1fwj" path="res://units/all_comps/stat_percentage_change_component/stat_percentage_change_component.tscn" id="14_5uclm"]
+[ext_resource type="Texture2D" uid="uid://b8fiellxvg66q" path="res://art (outer space)/bar/health/bar.png" id="15_b3ir1"]
+[ext_resource type="Texture2D" uid="uid://blyk2lq45oa5e" path="res://art (outer space)/bar/health/bar_filled.png" id="16_fvdby"]
+[ext_resource type="Script" uid="uid://cej2m1wqls5dx" path="res://units/player/health stuff/health_bar.gd" id="17_b8bax"]
+[ext_resource type="Texture2D" uid="uid://b18jovchof4kd" path="res://art (outer space)/bar/xp/Sprite-0009 (1).png" id="19_7swms"]
+[ext_resource type="Script" uid="uid://bdhym10dao2l6" path="res://units/player/visual_perk_slots_previews.gd" id="19_ap4t1"]
+[ext_resource type="PackedScene" uid="uid://c7aiun3jxx8pd" path="res://levelup_and_perks/visual_base_perk/perk_types/in-game perks/visual_perk_ingame_slot.tscn" id="19_ww2fs"]
+[ext_resource type="PackedScene" uid="uid://cju3lu5i764vo" path="res://units/player/unique_comps/weaponswitch/weapon_switch.tscn" id="22_5wre4"]
+[ext_resource type="PackedScene" uid="uid://ckjf242pbiedp" path="res://units/all_comps/audio_proc_manager/audio_proc_manager.tscn" id="22_qqbrb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n63nj"]
+radius = 3.0
+height = 26.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7swms"]
+size = Vector2(14.999239, 8.000304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wre4"]
+size = Vector2(3.4827766, 4.9992385)
+
+[node name="PlayerNode" type="CharacterBody2D" unique_id=2010375817 node_paths=PackedStringArray("movement_component", "stat_component", "killing_flag_component", "perk_manager_component", "health_component", "weapon_switcher", "all_pausable_nodes") groups=["player"]]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_ynuq4")
+movement_component = NodePath("PlayerMovementComponent")
+stat_component = NodePath("PlayerStatManipulation/PlayerStatComponent")
+killing_flag_component = NodePath("Hits And Deaths/PlayerKillingFlagComponent")
+perk_manager_component = NodePath("PerkManagerComponent")
+health_component = NodePath("Hits And Deaths/HealthComponent")
+weapon_switcher = NodePath("WeaponSwitch")
+all_pausable_nodes = [NodePath("PlayerFireController")]
+
+[node name="PerkManagerComponent" parent="." unique_id=1690505932 node_paths=PackedStringArray("stat_component", "stat_modification_component", "visual_perk_slot_preview") instance=ExtResource("2_opn3e")]
+stat_component = NodePath("../PlayerStatManipulation/PlayerStatComponent")
+stat_modification_component = NodePath("../PlayerStatManipulation/StatModificationComponent")
+visual_perk_slot_preview = NodePath("../Ui/VisualPerkSlotsPreviews")
+
+[node name="PlayerLookAtComponent" parent="." unique_id=856157958 node_paths=PackedStringArray("base_node") instance=ExtResource("4_hce78")]
+base_node = NodePath("..")
+
+[node name="BulletGeneratorContainerSlot" type="Node" parent="." unique_id=2066884874]
+script = ExtResource("3_2aag6")
+metadata/_custom_type_script = "uid://bncu6mhgg5m1v"
+
+[node name="PlayerFireController" parent="." unique_id=325765149 node_paths=PackedStringArray("player_stat_component", "player_stat_modification_component", "audio_proc_manager", "bgc_slot") instance=ExtResource("7_pwodn")]
+position = Vector2(14, -2.5)
+player_stat_component = NodePath("../PlayerStatManipulation/PlayerStatComponent")
+player_stat_modification_component = NodePath("../PlayerStatManipulation/StatModificationComponent")
+audio_proc_manager = NodePath("../AudioProcManager")
+bgc_slot = NodePath("../BulletGeneratorContainerSlot")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=869982457]
+position = Vector2(0.13999969, 8.940697e-08)
+texture = ExtResource("6_n63nj")
+
+[node name="PlayerMovementComponent" type="Node" parent="." unique_id=1563431279]
+script = ExtResource("8_a74nt")
+metadata/_custom_type_script = "uid://b2xvx7ici2akm"
+
+[node name="Hits And Deaths" type="Node2D" parent="." unique_id=373226601]
+
+[node name="HealthComponent" parent="Hits And Deaths" unique_id=1321408514 node_paths=PackedStringArray("stat_component", "health_bar", "death_flag_component") instance=ExtResource("9_5xdb8")]
+stat_component = NodePath("../../PlayerStatManipulation/PlayerStatComponent")
+health_bar = NodePath("../../Ui/HealthBar")
+death_flag_component = NodePath("../PlayerDeathFlagComponent")
+
+[node name="BulletDetectionComponent" parent="Hits And Deaths" unique_id=989646596 node_paths=PackedStringArray("collision_boxes", "health_component") instance=ExtResource("10_2aag6")]
+collision_boxes = [NodePath("../../CollisionShape"), NodePath("../../CollisionShape2"), NodePath("../../CollisionShape3"), NodePath("../../CollisionShape4")]
+health_component = NodePath("../HealthComponent")
+consumable_bullet = "enemy_bullet"
+
+[node name="PlayerKillingFlagComponent" parent="Hits And Deaths" unique_id=975565154 instance=ExtResource("12_7sgym")]
+
+[node name="PlayerDeathFlagComponent" parent="Hits And Deaths" unique_id=949764152 node_paths=PackedStringArray("stat_component", "root_parent") instance=ExtResource("11_7swms")]
+stat_component = NodePath("../../PlayerStatManipulation/PlayerStatComponent")
+root_parent = NodePath("../..")
+
+[node name="Perks And Levelups" type="Node2D" parent="." unique_id=119648507]
+
+[node name="XpCalculationComponent" parent="Perks And Levelups" unique_id=969032303 node_paths=PackedStringArray("player_stat_component", "kill_flag_component", "health_component", "xp_bar_component") instance=ExtResource("12_0rgyy")]
+player_stat_component = NodePath("../../PlayerStatManipulation/PlayerStatComponent")
+kill_flag_component = NodePath("../../Hits And Deaths/PlayerKillingFlagComponent")
+health_component = NodePath("../../Hits And Deaths/HealthComponent")
+xp_bar_component = NodePath("../../Ui/XpBar")
+
+[node name="PlayerStatManipulation" type="Node" parent="." unique_id=2054668221]
+
+[node name="PlayerStatComponent" type="Node2D" parent="PlayerStatManipulation" unique_id=1882849815]
+script = ExtResource("8_n63nj")
+firing_rate = 0.9
+projectile_speed = 50.0
+projectile_damage = 4000.0
+custom_bullet_properties = {
+"wave_amplitude": 0.2,
+"wave_frequency": 5.0
+}
+movement_speed = 50.0
+max_health = 75.0
+metadata/_custom_type_script = "uid://dw0xchf30xux2"
+
+[node name="StatModificationComponent" parent="PlayerStatManipulation" unique_id=1003882404 node_paths=PackedStringArray("stat_component", "health_component") instance=ExtResource("14_5uclm")]
+stat_component = NodePath("../PlayerStatComponent")
+health_component = NodePath("../../Hits And Deaths/HealthComponent")
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=1369533557]
+
+[node name="HealthBar" type="TextureProgressBar" parent="Ui" unique_id=1310333414]
+offset_right = 111.0
+offset_bottom = 21.0
+texture_over = ExtResource("15_b3ir1")
+texture_progress = ExtResource("16_fvdby")
+script = ExtResource("17_b8bax")
+
+[node name="XpBar" type="TextureProgressBar" parent="Ui" unique_id=2014379481]
+offset_left = 111.79
+offset_top = -0.38
+offset_right = 222.79001
+offset_bottom = 20.62
+value = 67.0
+texture_over = ExtResource("15_b3ir1")
+texture_progress = ExtResource("19_7swms")
+
+[node name="VisualPerkSlotsPreviews" type="Node2D" parent="Ui" unique_id=1481084578]
+position = Vector2(51.255, 155)
+script = ExtResource("19_ap4t1")
+
+[node name="VisualPerkSlotInGame" parent="Ui/VisualPerkSlotsPreviews" unique_id=352699760 instance=ExtResource("19_ww2fs")]
+is_ingame_perk = true
+metadata/_edit_lock_ = true
+
+[node name="VisualPerkSlotInGame2" parent="Ui/VisualPerkSlotsPreviews" unique_id=1877213264 instance=ExtResource("19_ww2fs")]
+position = Vector2(31, 0)
+is_ingame_perk = true
+metadata/_edit_lock_ = true
+
+[node name="VisualPerkSlotInGame3" parent="Ui/VisualPerkSlotsPreviews" unique_id=597069796 instance=ExtResource("19_ww2fs")]
+position = Vector2(62, 0)
+is_ingame_perk = true
+metadata/_edit_lock_ = true
+
+[node name="weapon_texture" type="Sprite2D" parent="Ui" unique_id=1133421117]
+position = Vector2(18.39, 155.295)
+
+[node name="WeaponSwitch" parent="." unique_id=1625842129 node_paths=PackedStringArray("bullet_slot", "base_parent") instance=ExtResource("22_5wre4")]
+bullet_slot = NodePath("../BulletGeneratorContainerSlot")
+base_parent = NodePath("..")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1577549709]
+position = Vector2(1.015, -2)
+rotation = 1.553343
+shape = SubResource("CapsuleShape2D_n63nj")
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="." unique_id=1272255906]
+position = Vector2(-6.9563627, -2.5)
+rotation = 1.553343
+shape = SubResource("RectangleShape2D_7swms")
+
+[node name="CollisionShape3" type="CollisionShape2D" parent="." unique_id=657852588]
+position = Vector2(-6.0000005, -11)
+rotation = 1.553343
+shape = SubResource("RectangleShape2D_5wre4")
+
+[node name="CollisionShape4" type="CollisionShape2D" parent="." unique_id=1037146207]
+position = Vector2(-6, 6)
+rotation = 1.553343
+shape = SubResource("RectangleShape2D_5wre4")
+
+[node name="AudioProcManager" parent="." unique_id=2079935601 instance=ExtResource("22_qqbrb")]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1002829830]
+current = true
+
+[editable path="WeaponSwitch"]

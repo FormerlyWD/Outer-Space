@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ckjf242pbiedp"]
+
+[ext_resource type="Script" uid="uid://mqnig6n48ji" path="res://units/all_comps/audio_proc_manager/audio_proc_manager.gd" id="1_5f7cj"]
+[ext_resource type="AudioStream" uid="uid://dhbbj5mpdn62f" path="res://sound/bullet_shoot.wav" id="2_yfuxg"]
+[ext_resource type="AudioStream" uid="uid://de1ua2sr5qdda" path="res://sound/shoot2.wav" id="3_332vk"]
+[ext_resource type="AudioStream" uid="uid://cv6p3arc3wjvr" path="res://sound/shoot3.wav" id="4_t5mlt"]
+[ext_resource type="AudioStream" uid="uid://c2w77svkllgm6" path="res://sound/shoot4.wav" id="5_vbf5q"]
+[ext_resource type="AudioStream" uid="uid://311ww243mxpm" path="res://sound/bullet_hit.wav" id="6_t5mlt"]
+
+[node name="AudioProcManager" type="Node2D" unique_id=2079935601]
+script = ExtResource("1_5f7cj")
+
+[node name="all_shoot" type="Node2D" parent="." unique_id=320197754]
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="all_shoot" unique_id=110603034]
+stream = ExtResource("2_yfuxg")
+
+[node name="shoot2" type="AudioStreamPlayer2D" parent="all_shoot" unique_id=714534542]
+stream = ExtResource("3_332vk")
+
+[node name="shoot3" type="AudioStreamPlayer2D" parent="all_shoot" unique_id=2143995840]
+stream = ExtResource("4_t5mlt")
+
+[node name="shoot4" type="AudioStreamPlayer2D" parent="all_shoot" unique_id=1024299476]
+stream = ExtResource("5_vbf5q")
+
+[node name="all_hit" type="Node2D" parent="." unique_id=1473282782]
+
+[node name="hit" type="AudioStreamPlayer2D" parent="all_hit" unique_id=447941024]
+stream = ExtResource("6_t5mlt")

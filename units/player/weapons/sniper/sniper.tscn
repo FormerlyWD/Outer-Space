@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dwag1w7x1u3cu"]
+
+[ext_resource type="Script" uid="uid://bhqon8jhfw6nw" path="res://units/player/weapons/sniper/sniper.gd" id="1_wimo3"]
+[ext_resource type="PackedScene" uid="uid://dowitrusld0jo" path="res://bullet_related_stuff/base_bullet_generation/base_bullet_generator_default.tscn" id="2_et5pr"]
+
+[node name="BulletGeneratorContainer" type="Node2D" unique_id=1226967140 node_paths=PackedStringArray("all_bullet_generators")]
+script = ExtResource("1_wimo3")
+all_bullet_generators = [NodePath("BaseBulletGeneratorDefault")]
+
+[node name="BaseBulletGeneratorDefault" parent="." unique_id=1476846202 instance=ExtResource("2_et5pr")]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cti1c3uv65sog"]
+
+[ext_resource type="AudioStream" uid="uid://bd1rrkh6wlnht" path="res://sound/Second beat.mp3" id="1_q3wc6"]
+[ext_resource type="Script" uid="uid://r20qtsa8afsb" path="res://globals/music.gd" id="2_3l76d"]
+
+[node name="Music" type="AudioStreamPlayer" unique_id=79663445]
+stream = ExtResource("1_q3wc6")
+volume_db = -15.0
+autoplay = true
+script = ExtResource("2_3l76d")

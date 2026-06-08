@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dkh5i0ffi71vv"]
+
+[ext_resource type="PackedScene" uid="uid://b1fi8s74cvvbo" path="res://units/enemies/base_blueprint/base_enemy.tscn" id="1_nr5np"]
+[ext_resource type="PackedScene" uid="uid://dl3168tk7giwi" path="res://units/player/weapons/pistol/pistol.tscn" id="2_7dl5m"]
+[ext_resource type="PackedScene" uid="uid://coi36myyxplgw" path="res://units/enemies/base_blueprint/unique_comps/look_at/enemy_look_at.tscn" id="3_7dl5m"]
+[ext_resource type="Texture2D" uid="uid://t2ng3unfxa31" path="res://art (outer space)/aliens/blue/Sprite-0006.png" id="4_5o2mc"]
+[ext_resource type="Texture2D" uid="uid://tliwb4m43ya5" path="res://art (outer space)/aliens/blue/Sprite-0007.png" id="5_3sppu"]
+[ext_resource type="Texture2D" uid="uid://vvykcmsu8734" path="res://art (outer space)/aliens/blue/Sprite-0008.png" id="6_uwj52"]
+[ext_resource type="Texture2D" uid="uid://cy5l5k41j0q33" path="res://art (outer space)/aliens/blue/Sprite-0009.png" id="7_xqa2k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5o2mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3sppu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uwj52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xqa2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaseEnemy" unique_id=337971491 instance=ExtResource("1_nr5np")]
+
+[node name="EnemyStatComponent" parent="." index="0" unique_id=463250076]
+bullet_accuracy = 0.9
+max_bullet_spread = 1.0
+custom_bullet_properties = {
+"homing_strength": 0.2,
+"is_homing_target_player": true,
+"wave_amplitude": 0.0,
+"wave_frequency": 1.2
+}
+movement_speed = 207.38
+max_health = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=2065740613]
+sprite_frames = SubResource("SpriteFrames_tt7b3")
+
+[node name="EnemyAiMovementComponent" parent="." index="3" unique_id=1312269206]
+current_enemy_movement_types = Array[int]([0])
+
+[node name="BulletGeneratorContainerSlot" parent="." index="9" unique_id=120269323 node_paths=PackedStringArray("bullet_generator_container")]
+bullet_generator_container = NodePath("../BulletGeneratorContainer")
+
+[node name="BulletGeneratorContainer" parent="." index="11" unique_id=1226967140 node_paths=PackedStringArray("stat_component", "root_unit") instance=ExtResource("2_7dl5m")]
+position = Vector2(-12.425, -2.84)
+rotation = -3.1415927
+stat_component = NodePath("../EnemyStatComponent")
+root_unit = NodePath("..")
+mark_bullet = "enemy_bullet"
+
+[node name="EnemyLookAtComponent" parent="." index="12" unique_id=796190153 node_paths=PackedStringArray("root_parent") instance=ExtResource("3_7dl5m")]
+root_parent = NodePath("..")
+timer_count = 0.1

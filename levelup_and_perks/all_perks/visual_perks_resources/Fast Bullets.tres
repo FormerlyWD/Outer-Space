@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://csjegfnpaqflw"]
+
+[ext_resource type="Script" uid="uid://dt547qqlnff6u" path="res://levelup_and_perks/all_perks/functional_perk_collection/projectile_speed.gd" id="1_e5ekb"]
+[ext_resource type="Texture2D" uid="uid://bqlkt65rxwis2" path="res://art (outer space)/perks/perk_designs/pierce.png" id="2_e5ekb"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="2_rj3nx"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_rj3nx")
+image = ExtResource("2_e5ekb")
+trunciated_perk_name = "PROJ/nUP"
+functional_perk_reference = ExtResource("1_e5ekb")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

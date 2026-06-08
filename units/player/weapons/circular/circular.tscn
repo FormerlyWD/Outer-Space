@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dei6si5jyi4j2"]
+
+[ext_resource type="PackedScene" uid="uid://yesem6p2ywhr" path="res://bullet_related_stuff/bullet_generator_container/bullet_generator_container.tscn" id="1_weapr"]
+[ext_resource type="Script" uid="uid://cojn7o3o0lrcc" path="res://units/player/weapons/shotgun/shotgun_bullet_generator_container.gd" id="2_6uf0b"]
+[ext_resource type="PackedScene" uid="uid://dowitrusld0jo" path="res://bullet_related_stuff/base_bullet_generation/base_bullet_generator_default.tscn" id="3_rrag1"]
+
+[node name="circular" unique_id=1226967140 node_paths=PackedStringArray("all_bullet_generators") instance=ExtResource("1_weapr")]
+script = ExtResource("2_6uf0b")
+bifurcation = false
+all_bullet_generators = [NodePath("BaseBulletGeneratorDefault"), NodePath("BaseBulletGeneratorDefault2"), NodePath("BaseBulletGeneratorDefault3")]
+mark_bullet = "player_bullet"
+
+[node name="BaseBulletGeneratorDefault" parent="." index="0" unique_id=1476846202 instance=ExtResource("3_rrag1")]
+position = Vector2(-1.135, 0)
+
+[node name="BaseBulletGeneratorDefault2" parent="." index="1" unique_id=1281470452 instance=ExtResource("3_rrag1")]
+position = Vector2(0.005, -1.395)
+rotation = -0.6195919
+
+[node name="BaseBulletGeneratorDefault3" parent="." index="2" unique_id=723042676 instance=ExtResource("3_rrag1")]
+position = Vector2(0.005, 1.395)
+rotation = 0.6200456

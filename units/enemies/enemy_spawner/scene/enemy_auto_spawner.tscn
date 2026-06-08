@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c55e7rmh0xql0"]
+
+[ext_resource type="Script" uid="uid://c3craeqw5bmwl" path="res://units/enemies/enemy_spawner/scene/enemy_auto_spawner.gd" id="1_vblg3"]
+
+[node name="EnemyAutoSpawner" type="Node2D" unique_id=1785792017]
+position = Vector2(68.735, 0)
+script = ExtResource("1_vblg3")
+set_timer = 5.0
+
+[node name="SpawnLine" type="Line2D" parent="." unique_id=1975825965]
+points = PackedVector2Array(0, 10, 0, 173.54)

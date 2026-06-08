@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://btcs0fspd4o4n"]
+
+[ext_resource type="PackedScene" uid="uid://b1fi8s74cvvbo" path="res://units/enemies/base_blueprint/base_enemy.tscn" id="1_ufjwj"]
+[ext_resource type="Texture2D" uid="uid://h1qcmq7i7ga8" path="res://art (outer space)/aliens/green/Sprite-0005.png" id="2_ufjwj"]
+[ext_resource type="Texture2D" uid="uid://ybebadvfqkid" path="res://art (outer space)/aliens/green/Sprite-0006.png" id="3_2vune"]
+[ext_resource type="Texture2D" uid="uid://01q702xlgsbw" path="res://art (outer space)/aliens/green/Sprite-0007.png" id="4_nqnd8"]
+[ext_resource type="Texture2D" uid="uid://ctj4n07h7iba1" path="res://art (outer space)/aliens/green/Sprite-0008.png" id="5_evpxn"]
+[ext_resource type="PackedScene" uid="uid://coi36myyxplgw" path="res://units/enemies/base_blueprint/unique_comps/look_at/enemy_look_at.tscn" id="7_f6fs5"]
+[ext_resource type="PackedScene" uid="uid://qeklqnyvbpux" path="res://units/player/weapons/twingun/twingun.tscn" id="7_ufjwj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt7b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ufjwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2vune")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nqnd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_evpxn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaseEnemy" unique_id=337971491 instance=ExtResource("1_ufjwj")]
+
+[node name="EnemyStatComponent" parent="." index="0" unique_id=463250076]
+bullet_accuracy = 1.0
+max_bullet_spread = 1.0
+custom_bullet_properties = {
+"homing_strength": 0.2,
+"is_homing_target_player": true,
+"wave_amplitude": 0.0,
+"wave_frequency": 1.2
+}
+movement_speed = 207.38
+max_health = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=2065740613]
+sprite_frames = SubResource("SpriteFrames_tt7b3")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=202095739]
+position = Vector2(-1, 0)
+
+[node name="EnemyAiMovementComponent" parent="." index="3" unique_id=1312269206]
+current_enemy_movement_types = Array[int]([0])
+
+[node name="BulletGeneratorContainerSlot" parent="." index="9" unique_id=120269323 node_paths=PackedStringArray("bullet_generator_container")]
+bullet_generator_container = NodePath("../TwinGunBulletGeneratorContainer")
+
+[node name="EnemyLookAtComponent" parent="." index="11" unique_id=796190153 node_paths=PackedStringArray("root_parent") instance=ExtResource("7_f6fs5")]
+root_parent = NodePath("..")
+timer_count = 0.1
+
+[node name="TwinGunBulletGeneratorContainer" parent="." index="12" unique_id=1226967140 node_paths=PackedStringArray("all_bullet_generators", "stat_component", "root_unit") instance=ExtResource("7_ufjwj")]
+position = Vector2(-12.985, 0.895)
+rotation = -3.1415927
+bifurcation = false
+all_bullet_generators = [NodePath("BaseBulletGeneratorDefault2"), NodePath("BaseBulletGeneratorDefault3")]
+stat_component = NodePath("../EnemyStatComponent")
+root_unit = NodePath("..")
+mark_bullet = "enemy_bullet"

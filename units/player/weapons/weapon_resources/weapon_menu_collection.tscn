@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c0ry46glv5f6l"]
+
+[ext_resource type="Script" uid="uid://c6np81cb7qk8t" path="res://units/player/weapons/weapon_resources/weapon_menu_collection.gd" id="1_58rbp"]
+
+[node name="WeaponMenuCollection" type="Node" unique_id=1927166169]
+script = ExtResource("1_58rbp")

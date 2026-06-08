@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cmltvup7qjd4t"]
+
+[ext_resource type="Script" uid="uid://d1j0tkhweionm" path="res://levelup_and_perks/visual_base_perk/collection/visual_perk_slot_collection.gd" id="1_ybyq1"]
+
+[node name="VisualPerkSlotCollection" type="Node" unique_id=592878547]
+script = ExtResource("1_ybyq1")

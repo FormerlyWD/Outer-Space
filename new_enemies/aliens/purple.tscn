@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b6xccyxah0ymx"]
+
+[ext_resource type="PackedScene" uid="uid://b1fi8s74cvvbo" path="res://units/enemies/base_blueprint/base_enemy.tscn" id="1_0v3uv"]
+[ext_resource type="Texture2D" uid="uid://c2tee62k287s6" path="res://art (outer space)/aliens/purple/Sprite-0004 (1)1.png" id="2_s4ulu"]
+[ext_resource type="Texture2D" uid="uid://5a3vd211yh3m" path="res://art (outer space)/aliens/purple/Sprite-0004 (1)2.png" id="3_otnjf"]
+[ext_resource type="Texture2D" uid="uid://vw7hnxw4kdos" path="res://art (outer space)/aliens/purple/Sprite-0004 (1)3.png" id="4_rehma"]
+[ext_resource type="Texture2D" uid="uid://buj3aqjfjah3x" path="res://art (outer space)/aliens/purple/Sprite-0004 (1)4.png" id="5_yjrtp"]
+[ext_resource type="PackedScene" uid="uid://c8h7aejer8cb6" path="res://units/player/weapons/shotgun/shotgun_bullet_generator_container.tscn" id="6_s4ulu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gke5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s4ulu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_otnjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rehma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yjrtp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaseEnemy" unique_id=337971491 instance=ExtResource("1_0v3uv")]
+
+[node name="EnemyStatComponent" parent="." index="0" unique_id=463250076]
+projectile_damage = 20.0
+custom_bullet_behavior = ""
+custom_bullet_properties = {
+"homing_strength": 1.0,
+"is_homing_target_player": true,
+"wave_amplitude": 0.1,
+"wave_frequency": 1.2
+}
+max_health = 133.333
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=227167940]
+sprite_frames = SubResource("SpriteFrames_gke5g")
+
+[node name="BulletGeneratorContainerSlot" parent="." index="9" unique_id=120269323 node_paths=PackedStringArray("bullet_generator_container")]
+bullet_generator_container = NodePath("../ShotGunBulletGeneratorContainer")
+
+[node name="ShotGunBulletGeneratorContainer" parent="." index="11" unique_id=1226967140 node_paths=PackedStringArray("stat_component", "root_unit") instance=ExtResource("6_s4ulu")]
+position = Vector2(-12.905, -2.92)
+rotation = -3.1415927
+stat_component = NodePath("../EnemyStatComponent")
+root_unit = NodePath("..")
+mark_bullet = "enemy_bullet"

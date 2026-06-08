@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://df5g3mjn2l642"]
+
+[ext_resource type="Script" uid="uid://b7l2xxqgvji5" path="res://main_environment/environment_camera/main_camera.gd" id="1_1o8pj"]
+[ext_resource type="Script" uid="uid://d1vms26grsixw" path="res://main_environment/environment_camera/corner_detect/sides.gd" id="1_xh5br"]
+[ext_resource type="Script" uid="uid://cdu3nmq45qpdd" path="res://main_environment/environment_camera/corner_detect/detection_centre.gd" id="3_snd23"]
+[ext_resource type="Script" uid="uid://g4ruh2w8d8kb" path="res://main_environment/environment_camera/sides.gd" id="4_sdi8f"]
+[ext_resource type="PackedScene" uid="uid://c55e7rmh0xql0" path="res://units/enemies/enemy_spawner/scene/enemy_auto_spawner.tscn" id="5_lnump"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnump"]
+size = Vector2(527.00385, 3.7133827)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6rh"]
+size = Vector2(537.98926, 3.7133827)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vs2g0"]
+size = Vector2(320.00153, 3.7133827)
+
+[node name="MainCamera" type="Camera2D" unique_id=288779792]
+script = ExtResource("1_1o8pj")
+
+[node name="blockade_centre" type="Node2D" parent="." unique_id=1523643381]
+
+[node name="sides" type="RigidBody2D" parent="blockade_centre" unique_id=1278415717]
+collision_mask = 2
+lock_rotation = true
+freeze = true
+contact_monitor = true
+script = ExtResource("1_xh5br")
+
+[node name="first_side" type="CollisionShape2D" parent="blockade_centre/sides" unique_id=421247082]
+position = Vector2(103.50228, -93.38003)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_lnump")
+
+[node name="second_side" type="CollisionShape2D" parent="blockade_centre/sides" unique_id=1303803531]
+position = Vector2(109.02413, 92.599815)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_gq6rh")
+
+[node name="top" type="RigidBody2D" parent="blockade_centre" unique_id=1329943071]
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 2
+lock_rotation = true
+freeze = true
+contact_monitor = true
+script = ExtResource("1_xh5br")
+
+[node name="second_side" type="CollisionShape2D" parent="blockade_centre/top" unique_id=1015050354]
+position = Vector2(0.031, 162.4)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="bottom" type="RigidBody2D" parent="blockade_centre" unique_id=656957360]
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 2
+lock_rotation = true
+freeze = true
+contact_monitor = true
+script = ExtResource("1_xh5br")
+
+[node name="first_side" type="CollisionShape2D" parent="blockade_centre/bottom" unique_id=1728143954]
+position = Vector2(11.999992, -162.00006)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="bottom2" type="RigidBody2D" parent="blockade_centre" unique_id=526100016]
+position = Vector2(305.085, 0)
+rotation = 1.5707964
+collision_layer = 3
+collision_mask = 6
+lock_rotation = true
+freeze = true
+contact_monitor = true
+script = ExtResource("1_xh5br")
+
+[node name="first_side" type="CollisionShape2D" parent="blockade_centre/bottom2" unique_id=217185812]
+position = Vector2(12, -48.53)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="detection_centre" type="Node2D" parent="." unique_id=2065954759]
+script = ExtResource("3_snd23")
+
+[node name="sides" type="Area2D" parent="detection_centre" unique_id=2093871140]
+collision_layer = 17
+collision_mask = 36
+script = ExtResource("4_sdi8f")
+
+[node name="first_side" type="CollisionShape2D" parent="detection_centre/sides" unique_id=120731892]
+position = Vector2(0.0018310547, -93.00001)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="second_side" type="CollisionShape2D" parent="detection_centre/sides" unique_id=2121817482]
+position = Vector2(0.031, 93)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="top" type="Area2D" parent="detection_centre" unique_id=1820498456]
+rotation = 1.5707964
+collision_mask = 12
+
+[node name="second_side" type="CollisionShape2D" parent="detection_centre/top" unique_id=373662681]
+position = Vector2(0.031, 162.4)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="bottom" type="Area2D" parent="detection_centre" unique_id=477991150]
+rotation = 1.5707964
+collision_mask = 4
+
+[node name="first_side" type="CollisionShape2D" parent="detection_centre/bottom" unique_id=1400351739]
+position = Vector2(11.999992, -162.00006)
+rotation = -0.0036716536
+shape = SubResource("RectangleShape2D_vs2g0")
+
+[node name="EnemyAutoSpawner" parent="." unique_id=1785792017 instance=ExtResource("5_lnump")]
+position = Vector2(117.67, -93.34)
+
+[connection signal="body_exited" from="blockade_centre/sides" to="blockade_centre" method="_on_sides_body_exited"]
+[connection signal="body_shape_entered" from="blockade_centre/sides" to="blockade_centre" method="_on_sides_body_shape_entered"]
+[connection signal="body_shape_exited" from="blockade_centre/sides" to="blockade_centre" method="_on_sides_body_shape_exited"]
+[connection signal="body_exited" from="blockade_centre/top" to="blockade_centre" method="_on_top_body_exited"]
+[connection signal="body_exited" from="blockade_centre/bottom" to="blockade_centre" method="_on_bottom_body_exited"]
+[connection signal="area_entered" from="detection_centre/sides" to="detection_centre/sides" method="_on_area_entered"]
+[connection signal="area_shape_entered" from="detection_centre/sides" to="detection_centre" method="_on_sides_area_shape_entered"]
+[connection signal="area_shape_exited" from="detection_centre/sides" to="detection_centre" method="_on_sides_area_shape_exited"]
+[connection signal="area_shape_entered" from="detection_centre/top" to="detection_centre" method="_on_top_area_shape_entered"]
+[connection signal="area_shape_exited" from="detection_centre/top" to="detection_centre" method="_on_top_area_shape_exited"]
+[connection signal="area_shape_entered" from="detection_centre/bottom" to="detection_centre" method="_on_bottom_area_shape_entered"]
+[connection signal="area_shape_exited" from="detection_centre/bottom" to="detection_centre" method="_on_bottom_area_shape_exited"]

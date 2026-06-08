@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://binowievr67jy"]
+
+[ext_resource type="Script" uid="uid://dw0xchf30xux2" path="res://units/all_comps/stat_component/stat_component.gd" id="1_ga2bk"]
+
+[node name="StatComponent" type="Node2D" unique_id=164609519]
+position = Vector2(5, -4)
+script = ExtResource("1_ga2bk")

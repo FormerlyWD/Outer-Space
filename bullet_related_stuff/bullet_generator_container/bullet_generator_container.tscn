@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://yesem6p2ywhr"]
+
+[ext_resource type="Script" uid="uid://bkjnaksck2y62" path="res://bullet_related_stuff/bullet_generator_container/bullet_generator_container.gd" id="1_5g353"]
+
+[node name="BulletGeneratorContainer" type="Node2D" unique_id=1226967140]
+script = ExtResource("1_5g353")

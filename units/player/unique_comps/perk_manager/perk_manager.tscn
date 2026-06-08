@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c42rspwcd2svr"]
+
+[ext_resource type="Script" uid="uid://wx40allpc86w" path="res://units/player/unique_comps/perk_manager/perk_manager.gd" id="1_5lnfu"]
+
+[node name="PerkManagerComponent" type="Node" unique_id=1690505932]
+script = ExtResource("1_5lnfu")

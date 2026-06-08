@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://bkbrc1r7j4wv0"]
+
+[ext_resource type="Script" uid="uid://cn58e6aujpbu3" path="res://levelup_and_perks/all_perks/functional_perk_collection/reload.gd" id="1_fru1p"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="1_wrjh4"]
+[ext_resource type="Texture2D" uid="uid://boru0utibjvm5" path="res://art (outer space)/perks/perk_designs/Sprite-reload.png" id="2_k8dqv"]
+
+[resource]
+script = ExtResource("1_wrjh4")
+image = ExtResource("2_k8dqv")
+trunciated_perk_name = "RE/nLOAD"
+functional_perk_reference = ExtResource("1_fru1p")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

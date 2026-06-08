@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://4jam52lo8mx6"]
+
+[ext_resource type="Script" uid="uid://cs7ov1s81fvnu" path="res://levelup_and_perks/all_perks/functional_perk_collection/acc_shot.gd" id="1_ay0uu"]
+[ext_resource type="Texture2D" uid="uid://cj8bi7anqwj3i" path="res://art (outer space)/perks/perk_designs/acc shots.png" id="2_ay0uu"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="3_yrmxc"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_yrmxc")
+image = ExtResource("2_ay0uu")
+trunciated_perk_name = "ACC/nSHOT"
+functional_perk_reference = ExtResource("1_ay0uu")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

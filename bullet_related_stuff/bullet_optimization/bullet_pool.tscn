@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://co81supgyxny2"]
+
+[ext_resource type="Script" uid="uid://mrjw0s6ghr8" path="res://bullet_related_stuff/bullet_optimization/bullet_pool.gd" id="1_j4cp7"]
+
+[node name="BulletPool" type="Node" unique_id=972384994]
+script = ExtResource("1_j4cp7")

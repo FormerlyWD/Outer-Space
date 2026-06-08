@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://dcl43hpblsl06"]
+
+[ext_resource type="Script" uid="uid://blyy4pbxqsido" path="res://levelup_and_perks/all_perks/functional_perk_collection/wavy_bullet.gd" id="1_1aotj"]
+[ext_resource type="Texture2D" uid="uid://dmbe2p0yfhbby" path="res://art (outer space)/perks/perk_designs/wave.png" id="2_1aotj"]
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="3_v4nsf"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_v4nsf")
+image = ExtResource("2_1aotj")
+trunciated_perk_name = "WAVE/nSHOT"
+functional_perk_reference = ExtResource("1_1aotj")
+perk_tag = "BulletBehavior"
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

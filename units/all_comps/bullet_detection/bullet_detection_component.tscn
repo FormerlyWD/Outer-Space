@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bvehvyq7sgh6b"]
+
+[ext_resource type="Script" uid="uid://dyne6dubpt0qs" path="res://units/all_comps/bullet_detection/bullet_detection_component.gd" id="1_n6uv3"]
+
+[node name="BulletDetectionComponent" type="Area2D" unique_id=989646596]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_n6uv3")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

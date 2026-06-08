@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2gsy70asom7a"]
+
+[ext_resource type="Script" uid="uid://cotni5tlvo5ex" path="res://units/player/unique_comps/xp_calculation_component/xp_calculation_component.gd" id="1_7f40c"]
+
+[node name="XpCalculationComponent" type="Node" unique_id=969032303]
+script = ExtResource("1_7f40c")

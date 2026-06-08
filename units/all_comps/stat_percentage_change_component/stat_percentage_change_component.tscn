@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bn847u5ah1fwj"]
+
+[ext_resource type="Script" uid="uid://d3p5cafp5y50c" path="res://units/all_comps/stat_percentage_change_component/stat_percentage_change_component.gd" id="1_7fnnh"]
+
+[node name="StatModificationComponent" type="Node" unique_id=1003882404]
+script = ExtResource("1_7fnnh")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://vo0sxidyc2r4"]
+
+[ext_resource type="Script" uid="uid://ngtq3blb4847" path="res://units/player/weapons/weapon_resources/weapon_definitions.gd" id="1_3hlbt"]
+[ext_resource type="Texture2D" uid="uid://gm81scm6w52t" path="res://art (outer space)/weapon types/Sprite-00i14.png" id="2_vodsh"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_3hlbt")
+weapon_image = ExtResource("2_vodsh")
+weapon_bgcs_path = "res://units/player/weapons/shotgun/shotgun_bullet_generator_container.tscn"
+trunciated_weapon_name = "SHOT/nGUN"
+description = "Shoot 3 patterns with base damage of 5"
+metadata/_custom_type_script = "uid://ngtq3blb4847"

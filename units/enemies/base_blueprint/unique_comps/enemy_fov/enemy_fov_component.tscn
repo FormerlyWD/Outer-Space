@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c336kad7t4tp5"]
+
+[ext_resource type="Script" uid="uid://by1io56x3rxsh" path="res://units/enemies/base_blueprint/unique_comps/enemy_fov/enemy_fov_component.gd" id="1_6ef25"]
+
+[node name="EnemyFovComponent" type="Area2D" unique_id=1546877068]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_6ef25")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

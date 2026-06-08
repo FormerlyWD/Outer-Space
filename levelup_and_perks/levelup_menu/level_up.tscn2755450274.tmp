@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://yx5671awrkti"]
+
+[ext_resource type="Script" uid="uid://dqomn05gy53o" path="res://levelup_and_perks/levelup_menu/level_up.gd" id="1_2drgo"]
+[ext_resource type="Texture2D" uid="uid://dtq4ts1042y1w" path="res://art (outer space)/perks/perk_menu/perkselectionpopup.png" id="1_kmv0b"]
+[ext_resource type="PackedScene" uid="uid://cmltvup7qjd4t" path="res://levelup_and_perks/functional_base_perk/collection/visual_perk_slot_collection.tscn" id="3_fwqmm"]
+[ext_resource type="PackedScene" uid="uid://cf5mj033sy4hg" path="res://levelup_and_perks/functional_base_perk/visual_perk.tscn" id="3_mo2gq"]
+[ext_resource type="Script" uid="uid://ce4loft12hut8" path="res://levelup_and_perks/levelup_menu/touch_manager.gd" id="5_20qy5"]
+
+[sub_resource type="Animation" id="Animation_kmv0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InnerLevelUpMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, 49)]
+}
+
+[sub_resource type="Animation" id="Animation_2drgo"]
+resource_name = "test_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InnerLevelUpMenu:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(106, 49), Vector2(106, 24.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mo2gq"]
+_data = {
+&"RESET": SubResource("Animation_kmv0b"),
+&"test_animation": SubResource("Animation_2drgo")
+}
+
+[node name="LevelUp" type="Control" unique_id=2115891844 node_paths=PackedStringArray("visual_perk_slot_collection")]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2drgo")
+visual_perk_slot_collection = NodePath("InnerLevelUpMenu/MenuWiggle/VisualPerkSlotCollection")
+
+[node name="InnerLevelUpMenu" type="Control" parent="." unique_id=495761331]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -41.0
+offset_right = 53.99997
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuWiggle" type="Node2D" parent="InnerLevelUpMenu" unique_id=1586945414]
+position = Vector2(53.73, 65.485)
+
+[node name="inner_border" type="Sprite2D" parent="InnerLevelUpMenu/MenuWiggle" unique_id=1754019127]
+position = Vector2(-1.5258789e-05, 0)
+texture = ExtResource("1_kmv0b")
+
+[node name="VisualPerkSlot1" parent="InnerLevelUpMenu/MenuWiggle" unique_id=1202510272 instance=ExtResource("3_mo2gq")]
+position = Vector2(-21.979996, -33.485)
+
+[node name="VisualPerkSlot2" parent="InnerLevelUpMenu/MenuWiggle" unique_id=352699760 instance=ExtResource("3_mo2gq")]
+position = Vector2(-21.979996, 0.5149994)
+
+[node name="VisualPerkSlot3" parent="InnerLevelUpMenu/MenuWiggle" unique_id=996254829 instance=ExtResource("3_mo2gq")]
+position = Vector2(-22, 34)
+
+[node name="VisualPerkSlotCollection" parent="InnerLevelUpMenu/MenuWiggle" unique_id=592878547 node_paths=PackedStringArray("visual_perk_slots") instance=ExtResource("3_fwqmm")]
+unique_name_in_owner = true
+visual_perk_slots = [NodePath("../VisualPerkSlot1"), NodePath("../VisualPerkSlot2"), NodePath("../VisualPerkSlot3")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=25540350]
+libraries/ = SubResource("AnimationLibrary_mo2gq")
+
+[node name="TouchManager" type="Node" parent="." unique_id=1350652983]
+unique_name_in_owner = true
+script = ExtResource("5_20qy5")
+
+[node name="Label" type="Label" parent="." unique_id=1535956381]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

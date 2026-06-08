@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VisualPerk" format=3 uid="uid://ckf7chapgfpxm"]
+
+[ext_resource type="Script" uid="uid://cfxmukp28otuo" path="res://levelup_and_perks/base_perks/visual_perk_class.gd" id="1_ln46s"]
+[ext_resource type="Script" uid="uid://bjgfxbbx4i1b8" path="res://levelup_and_perks/all_perks/functional_perk_collection/dmg up.gd" id="1_rmyyw"]
+[ext_resource type="Texture2D" uid="uid://cw2spwgoudefv" path="res://art (outer space)/perks/perk_designs/damage.png" id="2_cs6xf"]
+
+[resource]
+script = ExtResource("1_ln46s")
+image = ExtResource("2_cs6xf")
+trunciated_perk_name = "DMG/nUP"
+functional_perk_reference = ExtResource("1_rmyyw")
+metadata/_custom_type_script = "uid://cfxmukp28otuo"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://guuvbouer3ag"]
+
+[ext_resource type="Script" uid="uid://brgkmh4g65ji1" path="res://units/player/unique_comps/player_fire_controller/player_fire_controller.gd" id="1_83cew"]
+
+[node name="PlayerFireController" type="Node2D" unique_id=325765149]
+script = ExtResource("1_83cew")

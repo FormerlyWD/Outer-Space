@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://8na5vlh3ugy3"]
+
+[ext_resource type="Script" uid="uid://xps83ioy8u87" path="res://bullet_related_stuff/bullets/base_bullet.gd" id="1_hknyj"]
+[ext_resource type="Texture2D" uid="uid://bkp501g07jcei" path="res://art (outer space)/bullet/enemy.png" id="2_hknyj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hknyj"]
+radius = 1.75
+
+[node name="BaseBullet" type="Node2D" unique_id=237462438 groups=["bullets"]]
+z_index = 1
+script = ExtResource("1_hknyj")
+wave_amplitude = 0.5
+wave_frequency = 20.0
+projectile_speed = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=115175823]
+position = Vector2(0.27, 0.235)
+rotation = 0.87266463
+texture = ExtResource("2_hknyj")
+
+[node name="bullet_area" type="Area2D" parent="." unique_id=672451174]
+unique_name_in_owner = true
+collision_layer = 6
+
+[node name="collision_shape" type="CollisionShape2D" parent="bullet_area" unique_id=1475381830]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_hknyj")
